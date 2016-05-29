@@ -237,3 +237,8 @@ input[type=submit]:active {
 .user-name{
     text-align: center;
 }
+
+.cGroup{
+	text-align: center;
+	margin: -20px auto 40px;
+}
