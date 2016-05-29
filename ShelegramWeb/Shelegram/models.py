@@ -13,7 +13,7 @@ class ShelegramUser(User):
 class ShelegramGroup(models.Model):
     name = models.CharField(max_length=100, blank=False);
     admin = models.ForeignKey(ShelegramUser, on_delete=models.CASCADE, null=False,
-                                            related_name='admin_user')
+                                            related_name='admin_user',blank=True)
     picture = models.ImageField(upload_to='static/media/images/avatars/',
                                 default='static/media/images/default_group.png', blank=True)
 
@@ -21,8 +21,8 @@ class ShelegramGroup(models.Model):
         return self.name
 
 class Membership(models.Model):
-    member = models.ForeignKey(ShelegramUser,on_delete=models.CASCADE, null=False,)
-    group = models.ForeignKey(ShelegramGroup,on_delete=models.CASCADE, null=False,)
+    member = models.ForeignKey(ShelegramUser,on_delete=models.CASCADE, null=False,blank=True)
+    group = models.ForeignKey(ShelegramGroup,on_delete=models.CASCADE, null=False,blank=True)
 
 
 

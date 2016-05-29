@@ -109,9 +109,20 @@ def groups(request):
     except:
         logout(request)
         return HttpResponseRedirect('/')
-    groups = ShelegramGroup.objects.all()
-    admins = ShelegramGroup.objects.filter(admin__username = logged_in.username)
-    member = Membership.objects.get(member__username = logged_in.username)
+    try:
+        groups = ShelegramGroup.objects.all()
+    except:
+        groups = None
+    try:
+        admins = ShelegramGroup.objects.all().filter(admin__username__exact=logged_in.username)
+    except:
+        admins = None
+
+    try:
+        member = Membership.objects.all().filter(member__username__exact=logged_in.username)
+    except:
+        member = None
+
     return render(request, 'shelegram/groups.html', {'user': logged_in , 'groups':groups , 'admins':admins, 'member':member})
 
 

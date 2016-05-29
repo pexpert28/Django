@@ -39,6 +39,16 @@
     <div class="container" style="width: 950px">
 		<div class="form" style="width: 900px">
 			<h1>My Groups</h1>
+            <ul>
+                {% for adm in admins %}
+                <li>{{ adm.name }} (admin) </li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for mem in member %}
+                <li>{{ mem.name }}</li>
+                {% endfor %}
+            </ul>
 		</div>
 	</div>
 
