@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^register/$', views.Register.as_view(), name='register'),
     url(r'^login/$', login, name="login"),
     url(r'^profile/$', login_required(views.profile), name='profile'),
+    url(r'^createGroup/$', login_required(views.CreateGroup.as_view()), name='createGroup'),
 ]
