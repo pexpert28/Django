@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome to shelegram</title>
+    <title>{{user.username}}  Profile .</title>
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
     <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -23,6 +23,7 @@
 			{{ user.username }}
 		</p>
 	</div>
+
 	<div class="container">
 		<div class="form">
 			<h1>User Information</h1>
@@ -30,15 +31,14 @@
                 <img id="profile_img" src="{{ user.picture }}">
             </div>
 			<p class="user-name">{{ user.first_name }}</p>
+            <p class="user-name">{{ user.last_name }}</p>
+            <p class="user-name">{{ user.email }}</p>
+            <p class="user-name"><a href="{% url 'editprofile' %}">Edit Profile</a></p>
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="form">
-			<h1>Groups</h1>
-		</div>
-	</div>
 	<div class="cGroup"><p><a href="{% url 'createGroup' %}">Create a Group</a></label></div>
+
 	<div class="container">
 		<div class="form">
 			<h1>Requests</h1>

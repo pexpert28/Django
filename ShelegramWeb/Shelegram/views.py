@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, RequestContext, render, get_obj
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views.generic import View, ListView
-from Shelegram.forms import RegistrationForm;
+from Shelegram.forms import RegistrationForm , GroupCreationForm, EditForm
 from Shelegram.models import ShelegramUser
 from django.contrib.auth import logout
 from Shelegram.models import ShelegramUser, ShelegramGroup
@@ -61,6 +61,8 @@ class CreateGroup(View):
             user = ShelegramUser.objects.get(pk=request.user.pk)
             group = ShelegramGroup(name=request.POST['name'],admin=user);
             group.save()
+            # group = group_creation_form.save()
+            # group.admin = user
             if 'picture' in request.FILES:
                 group.picture = request.FILES['picture']
             group.save()
@@ -69,8 +71,47 @@ class CreateGroup(View):
                                   {'group_creation_form': group_creation_form,
                                    'created': created},
                                   context)
-                                  
-                                  
+
+
+class EditProfile(View):
+    edit_form = EditForm()
+    template_name = 'shelegram/editprofile.html'
+
+    def get(self, request, *args, **kwargs):
+        context = RequestContext(request)
+        return render_to_response(self.template_name,
+                                  {'edit_form': self.edit_form,
+                                   'edited': False},
+                                  context)
+
+    def post(self, request, *args, **kwargs):
+        edited = False
+        context = RequestContext(request)
+        edit_form = EditForm(data=request.POST)
+        if edit_form.is_valid():
+            user = ShelegramUser.objects.get(pk=request.user.pk)
+            user.first_name=request.POST['first_name']
+            user.last_name=request.POST['last_name']
+            user.email=request.POST['email']
+            if 'picture' in request.FILES:
+                user.picture = request.FILES['picture']
+            user.save()
+            edited = True
+        return render_to_response(self.template_name,
+                                  {'group_creation_form': edited,
+                                   'edited': edited},
+                                  context)
+
+
+def groups(request):
+    try:
+        logged_in = ShelegramUser.objects.get(username = request.user)
+    except:
+        logout(request)
+        return HttpResponseRedirect('/')
+    return render(request, 'shelegram/groups.html', {'user': logged_in})
+
+
 def profile(request):
     try:
         logged_in = ShelegramUser.objects.get(username = request.user)
@@ -78,4 +119,3 @@ def profile(request):
         logout(request)
         return HttpResponseRedirect('/')
     return render(request, 'shelegram/profile.html', {'user': logged_in})
-

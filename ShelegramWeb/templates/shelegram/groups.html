@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{user.username}}  Profile .</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+	<div class="title">
+        {% load staticfiles %}
+        <img src="{% static 'media/images/logo.png' %}">
+	</div>
+
+<body>
+	<div class="title">
+		<p class="title-text" href="{% url 'createGroup' %}">
+			{{ user.username }}
+		</p>
+	</div>
+
+    <div class="cGroup"><p><a href="{% url 'profile' %}">Manage Profile</a></label></div>
+
+	<div class="container">
+		<div class="form">
+			<h1>Groups</h1>
+		</div>
+	</div>
+
+    <div class="container" style="width: 950px">
+		<div class="form" style="width: 900px">
+			<h1>Group Name</h1>
+		</div>
+	</div>
+
+</body>
+
+</body>
+</html>
