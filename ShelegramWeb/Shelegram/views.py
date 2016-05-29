@@ -59,8 +59,8 @@ class CreateGroup(View):
         group_creation_form = GroupCreationForm(data=request.POST)
         if group_creation_form.is_valid():
             user = ShelegramUser.objects.get(pk=request.user.pk)
-            group = group_creation_form.save()
-            group.admin = user
+            group = ShelegramGroup(name=request.POST['name'],admin=user);
+            group.save()
             if 'picture' in request.FILES:
                 group.picture = request.FILES['picture']
             group.save()
