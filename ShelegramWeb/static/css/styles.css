@@ -249,3 +249,30 @@ input[type=submit]:active {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.input_message{
+    /*height: 30px;*/
+    text-align: center;
+    border-top: 1px solid #cfcfcf;
+    margin: 20px -20px -21px;
+    background-color: #f3f3f3;
+    /*padding-bottom: 1px;*/
+}
+
+.chat-box {
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+    width: 30px;
+}
+.chat-button {
+    position:relative;
+    padding:7px 15px;
+    left:-5px;
+    border:2px solid #37D0D7;
+    background-color:#37D0D7;
+    color:#fafafa;
+}
+.chat-button:hover  {
+    background-color:#fafafa;
+    color:#37D0D7;
+}
