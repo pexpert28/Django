@@ -14,12 +14,12 @@
 <body>
 	<div class="title">
         {% load staticfiles %}
-        <img src="{% static 'images/logo.png' %}">
+        <img src="{% static 'media/images/logo.png' %}">
 	</div>
 
     {% if created %}
         <div class="register_done">
-            <div><strong>thank you for registering, Now you can Login to Shelegram!</strong></div>
+            <div><strong>Your Group has been created!</strong></div>
             <div><a href="/profile/">Return to your profile.</a></div>
         </div>
     {% else %}
