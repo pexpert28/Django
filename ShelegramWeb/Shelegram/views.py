@@ -4,9 +4,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views.generic import View, ListView
 from Shelegram.forms import RegistrationForm , GroupCreationForm, EditForm
-from Shelegram.models import ShelegramUser
 from django.contrib.auth import logout
-from Shelegram.models import ShelegramUser, ShelegramGroup
+from Shelegram.models import ShelegramUser, ShelegramGroup , Membership
 
 def index(request):
     return render(request, 'shelegram/index.html', {})
@@ -104,12 +103,16 @@ class EditProfile(View):
 
 
 def groups(request):
+
     try:
         logged_in = ShelegramUser.objects.get(username = request.user)
     except:
         logout(request)
         return HttpResponseRedirect('/')
-    return render(request, 'shelegram/groups.html', {'user': logged_in})
+    groups = ShelegramGroup.objects.all()
+    admins = ShelegramGroup.objects.filter(admin__username = logged_in.username)
+    member = Membership.objects.get(member__username = logged_in.username)
+    return render(request, 'shelegram/groups.html', {'user': logged_in , 'groups':groups , 'admins':admins, 'member':member})
 
 
 def profile(request):
