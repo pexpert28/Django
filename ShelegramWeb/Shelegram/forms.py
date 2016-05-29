@@ -1,5 +1,5 @@
 from django import forms
-from Shelegram.models import ShelegramUser
+from Shelegram.models import ShelegramUser, ShelegramGroup
 
 
 class RegistrationForm(forms.ModelForm):
@@ -8,3 +8,9 @@ class RegistrationForm(forms.ModelForm):
     class Meta:
         model = ShelegramUser
         fields = ('first_name', 'last_name','email', 'username', 'password', 'picture')
+        
+class GroupCreationForm(forms.ModelForm):
+
+    class Meta:
+        model = ShelegramGroup
+        fields = ('name', 'picture');
