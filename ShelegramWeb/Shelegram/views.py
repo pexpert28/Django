@@ -1,8 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, RequestContext, render, get_object_or_404
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views.generic import View, ListView
 from Shelegram.forms import RegistrationForm;
+from Shelegram.models import ShelegramUser
+from django.contrib.auth import logout
 
 
 def index(request):
@@ -38,6 +41,11 @@ class Register(View):
                                   {'user_model_register_form': user_model_register_form,
                                    'registered': registered},
                                   context)
-
 def profile(request):
-    return render(request, 'shelegram/profile.html', {})
+    try:
+        logged_in = ShelegramUser.objects.get(username = request.user)
+    except:
+        logout(request)
+        return HttpResponseRedirect('/')
+    return render(request, 'shelegram/profile.html', {'user': logged_in})
+

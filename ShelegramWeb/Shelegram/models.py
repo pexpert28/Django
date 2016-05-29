@@ -4,7 +4,7 @@ from django.utils.timezone import now
 
 
 class ShelegramUser(User):
-    picture = models.ImageField(upload_to='static/avatars/', default='static/avatars/default.jpg', blank=True)
+    picture = models.ImageField(upload_to='/static/media/images/avatars/', default='/static/media/images/avatars/default.png', blank=True)
     User._meta.get_field('email').blank = False;
     def __str__(self):
         return self.username;

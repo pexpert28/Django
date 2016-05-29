@@ -14,20 +14,22 @@
 <body>
 	<div class="title">
         {% load staticfiles %}
-        <img src="{% static 'images/logo.png' %}">
+        <img src="{% static 'media/images/logo.png' %}">
 	</div>
 
 <body>
 	<div class="title">
 		<p class="title-text">
-			Username
+			{{ user.username }}
 		</p>
 	</div>
 	<div class="container">
 		<div class="form">
 			<h1>User Information</h1>
-			<div class="image-box"></div>
-			<p class="user-name">Name</p>
+			<div class="image-box">
+                <img id="profile_img" src="{{ user.picture }}">
+            </div>
+			<p class="user-name">{{ user.first_name }}</p>
 		</div>
 	</div>
 
