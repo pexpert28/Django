@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.title {
+    margin: 40px auto 40px;
+    padding: 8px;
+    width: 380px;
+    color: black;
+    text-align: center;
+    font-size: 72px;
+}
+
+.about {
+    margin: 40px auto 40px;
+    padding: 8px;
+    width: 300px;
+    color: #666;
+    text-align: center;
+    text-shadow: 0 1px rgba(255, 255, 255, 0.25);
+    background: #eee;
+    background: rgba(250, 250, 250, 0.8);
+    border-radius: 4px;
+}
+
+body {
+    color: #404040;
+    background: #37D0D7;
+}
+
+.register_done{
+    font-size: 36px;
+    text-align: center;
+}
+.container {
+    margin: 40px auto;
+    width: 640px;
+}
+
+
+.button_form{
+	display: inline;
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 20px 20px;
+	width: 310px;
+	border-radius: 3px;
+}
+
+.button_form div.a {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form {
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 20px 20px;
+	width: 310px;
+	background: white;
+	border-radius: 3px;
+}
+
+.form:before {
+	content: '';
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	bottom: -5px;
+	left: -5px;
+	z-index: -1;
+	background: rgba(0, 0, 0, 0.08);
+	border-radius: 4px;
+}
+
+.form h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f3f3f3;
+    border-bottom: 1px solid #cfcfcf;
+    border-radius: 3px 3px 0 0;
+}
+.form p {
+  margin: 00px 0 20px;
+}
+.form p:first-child {
+  margin-top: 0;
+}
+.form input[type=text], .form input[type=password], .form input[type=email]{
+  width: 278px;
+}
+.form p.fPassword, .form p.agreeBox {
+    float: left;
+    line-height: 31px;
+}
+.form p.fPassword label, .form p.agreeBox label{
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+}
+.form p.fPassword input, .form p.agreeBox input{
+    position: relative;
+    bottom: 1px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+.form p.submit {
+    text-align: right;
+}
+
+.form-help {
+    margin: 0px 20px;
+    font-size: 11px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px #2a85a1;
+}
+.form-help a {
+    color: #cce7fa;
+    text-decoration: none;
+}
+.form-help a:hover {
+    text-decoration: underline;
+}
+
+:-moz-placeholder {
+    color: #c9c9c9 !important;
+    font-size: 13px;
+}
+
+::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 13px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    margin: 5px;
+    padding: 0 10px;
+    width: 200px;
+    height: 34px;
+    color: #404040;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border-color: #7dc9e2;
+}
+
+input[type=submit] {
+    padding: 0 18px;
+    height: 29px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #527881;
+    text-shadow: 0 1px #e3f1f1;
+    background: #cde5ef;
+    border: 1px solid;
+    border-color: #b4ccce #b3c0c8 #9eb9c2;
+    border-radius: 16px;
+}
+input[type=submit]:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+}
+
+.image-box{
+	margin: auto;
+	width: 250px;
+	height: 250px;
+	border: 10px solid #37D0D7;
+	border-radius: 10%;
+}
+
+.search-form {
+	width:500px;
+	margin:0px auto;
+	height: 34px;
+}
+
+.search-box {
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+    width: 30px;
+}
+.search-button {
+    position:relative;
+    padding:7px 15px;
+    left:-94px;
+    border:2px solid #37D0D7;
+    background-color:#37D0D7;
+    color:#fafafa;
+}
+.search-button:hover  {
+    background-color:#fafafa;
+    color:#37D0D7;
+}
+
+.user-name{
+    text-align: center;
+}
